@@ -59,4 +59,15 @@ ApplicationWindow {
 
         SplashScreen {}
     }
+
+    Timer {
+        interval: 3000; running: true; repeat: false
+        onTriggered: stack.push(startPage)
+    }
+
+    Component {
+        id: startPage
+
+        StartPage {}
+    }
 }
