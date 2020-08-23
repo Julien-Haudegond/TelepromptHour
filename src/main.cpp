@@ -4,6 +4,7 @@
 #include <QQmlApplicationEngine>
 #include <QtQml>
 #include <QtGlobal>
+#include <QQuickStyle>
 
 #include <iostream>
 
@@ -12,6 +13,8 @@ int main(int argc, char* argv[]) {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
+    QQuickStyle::setStyle("Material");
+    
     // Logging messages
     #ifdef QT_DEBUG
         qInstallMessageHandler(MessageHandler::handler);
