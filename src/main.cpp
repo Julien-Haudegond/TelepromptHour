@@ -23,8 +23,10 @@ int main(int argc, char* argv[]) {
     // QML Engine
     QQmlApplicationEngine engine;
     #ifdef INSTANT_RELOAD
+        engine.addImportPath(QStringLiteral("src/qml")); // For QML Plugins
         const QUrl url(QStringLiteral("src/qml/main.qml")); // Avoid use of RCC during development on Desktop
     #else
+        engine.addImportPath(QStringLiteral("qrc:///src/qml")); // For QML Plugins
         const QUrl url(QStringLiteral("qrc:///src/qml/main.qml"));
     #endif
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

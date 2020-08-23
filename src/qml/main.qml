@@ -3,6 +3,8 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQml 2.15
 
+import Utils 1.0
+
 ApplicationWindow {
     visible: true
     width: 360
@@ -10,10 +12,10 @@ ApplicationWindow {
     title: qsTr("TelepromptHour")
 
     Material.theme: Material.Dark
-    Material.accent: Material.color(Material.Teal, Material.Shade400)
-    Material.primary: Material.color(Material.Teal, Material.Shade400)
-    Material.foreground: Material.color(Material.Grey, Material.Shade300)
-    Material.background: Material.color(Material.Grey, Material.Shade900)
+    Material.accent: Colors.middleTeal
+    Material.primary: Colors.middleTeal
+    Material.foreground: Colors.lightestGrey
+    Material.background: Colors.darkestGrey
 
     StackView {
         id: stack

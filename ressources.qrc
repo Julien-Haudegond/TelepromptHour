@@ -3,7 +3,10 @@
         <file>src/qml/main.qml</file>
         <file>src/qml/SplashScreen.qml</file>
         <file>src/qml/StartPage.qml</file>
-        <file>src/qml/fonts/MaterialIcons-Regular.ttf</file>
-        <file>src/qml/fonts/WorkSans-SemiBold.ttf</file>
+        <file>src/qml/Utils/Colors.qml</file>
+        <file>src/qml/Utils/Fonts.qml</file>
+        <file>src/qml/Utils/qmldir</file>
+        <file>src/qml/Utils/fonts/MaterialIcons-Regular.ttf</file>
+        <file>src/qml/Utils/fonts/WorkSans-SemiBold.ttf</file>
     </qresource>
 </RCC>
