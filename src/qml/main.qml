@@ -54,6 +54,24 @@ ApplicationWindow {
                 duration: 500
             }
         }
+        replaceEnter: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 0
+                to:1
+                duration: 1500
+                easing.type: Easing.InQuad
+            }
+        }
+        replaceExit: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 1
+                to:0
+                duration: 500
+                easing.type: Easing.OutQuad
+            }
+        }
     }
 
     Component {
@@ -64,7 +82,7 @@ ApplicationWindow {
 
     Timer {
         interval: 3000; running: true; repeat: false
-        onTriggered: stack.push(startPage)
+        onTriggered: stack.replace(startPage)
     }
 
     Component {
