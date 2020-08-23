@@ -6,8 +6,8 @@ set(EXECUTABLE_OUTPUT_PATH ./${CMAKE_BUILD_TYPE})
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC OFF)
-set(CMAKE_AUTORCC OFF)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -25,36 +25,37 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(Qt5 COMPONENTS Core Quick REQUIRED)
+find_package(Qt5 COMPONENTS Core Quick QuickControls2 REQUIRED)
+
+if(INSTANT_RELOAD)
+    message("Instant Reload is enabled.")
+    add_compile_definitions(INSTANT_RELOAD)
+endif()
 
 set(HEADER_FILES
-  src/MessageHandler.hpp
+    src/MessageHandler.hpp
 )
 
 set(SRC_FILES
-  src/main.cpp
-  src/MessageHandler.cpp
-)
-
-set(QML_FILES
-  src/qml/main.qml
+    src/main.cpp
+    src/MessageHandler.cpp
 )
 
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED
-      ${HEADER_FILES}
-      ${SRC_FILES}
-      ${QML_FILES}
-    )
+        ${HEADER_FILES}
+        ${SRC_FILES}
+        ressources.qrc
+        )
 else()
     add_executable(${PROJECT_NAME}
-      ${HEADER_FILES}
-      ${SRC_FILES}
-      ${QML_FILES}
-    )
+        ${HEADER_FILES}
+        ${SRC_FILES}
+        ressources.qrc
+        )
 endif()
 
 target_compile_definitions(${PROJECT_NAME}
-  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(${PROJECT_NAME}
-  PRIVATE Qt5::Core Qt5::Quick)
+    PRIVATE Qt5::Core Qt5::Quick Qt5::QuickControls2)

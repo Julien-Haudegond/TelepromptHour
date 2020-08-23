@@ -1,0 +1,7 @@
+<RCC>
+    <qresource>
+        <file>src/qml/main.qml</file>
+        <file>src/qml/fonts/MaterialIcons-Regular.ttf</file>
+        <file>src/qml/fonts/WorkSans-SemiBold.ttf</file>
+    </qresource>
+</RCC>

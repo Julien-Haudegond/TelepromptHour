@@ -19,7 +19,11 @@ int main(int argc, char* argv[]) {
 
     // QML Engine
     QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("src/qml/main.qml"));
+    #ifdef INSTANT_RELOAD
+        const QUrl url(QStringLiteral("src/qml/main.qml")); // Avoid use of RCC during development on Desktop
+    #else
+        const QUrl url(QStringLiteral("qrc:///src/qml/main.qml"));
+    #endif
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
