@@ -22,52 +22,63 @@ ColumnLayout {
         text: "TelepromptHour"
     }
 
-    RowLayout {
-        Text {
-            id: textToRead
-            color: fontColor
-            font {
-                family: Fonts.workSans.semiBold.name
-                pointSize: 11
-            }
-            text: "Text to Read"
-        }
-        
-        AddButton {}
-    }
+    ColumnLayout {
+        id: textToReadContainer
 
-    Rectangle {
         Layout.fillWidth: true
         Layout.leftMargin: 20
         Layout.rightMargin: 20
-        Layout.preferredHeight: 100
-        color: "transparent"
-        border {
-            color: Colors.darkGrey
-            width: 2
+        
+        RowLayout {
+            Text {
+                id: textToRead
+                color: fontColor
+                font {
+                    family: Fonts.workSans.semiBold.name
+                    pointSize: 11
+                }
+                text: "Text to Read"
+            }
+            
+            AddButton {}
         }
-        radius: 6
 
-        Flickable {
-            id: flickableText
-            anchors.fill: parent
-            topMargin: 0
-            bottomMargin: 0
-            clip: true
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 100
+            color: "transparent"
+            border {
+                color: Colors.darkGrey
+                width: 2
+            }
+            radius: 6
 
-            TextArea.flickable: TextArea {
-                id: textArea
-                wrapMode: Text.WordWrap
-                topPadding: 4
-                bottomPadding: 6
-                leftPadding: 5
-                rightPadding: 5
-                color: Colors.lightestTeal
+            Flickable {
+                anchors.fill: parent
+                clip: true
 
-                background: Rectangle { color: "transparent" } // Just to override default style
+                TextArea.flickable: TextArea {
+                    id: textArea
+                    wrapMode: Text.WordWrap
+                    topPadding: 4
+                    bottomPadding: 6
+                    leftPadding: 5
+                    rightPadding: 5
+                    color: Colors.lightestTeal
 
-                placeholderText: "Enter the script..."
+                    background: Rectangle { color: "transparent" } // Just to override default style
+
+                    placeholderText: "Enter the script..."
+                }
             }
         }
+    }
+
+    ColumnLayout {
+        id: settingsContainer
+
+        Layout.fillWidth: true
+        Layout.leftMargin: 20
+        Layout.rightMargin: 20
     }
 }
