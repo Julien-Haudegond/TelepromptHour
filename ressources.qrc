@@ -1,6 +1,6 @@
 <RCC>
     <qresource>
-        <file>src/qml/main.qml</file>
+        <file>src/qml/App.qml</file>
         <file>src/qml/SplashScreen.qml</file>
         <file>src/qml/StartPage.qml</file>
         <file>src/qml/AddButton.qml</file>

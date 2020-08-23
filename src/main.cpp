@@ -24,10 +24,10 @@ int main(int argc, char* argv[]) {
     QQmlApplicationEngine engine;
     #ifdef INSTANT_RELOAD
         engine.addImportPath(QStringLiteral("src/qml")); // For QML Plugins
-        const QUrl url(QStringLiteral("src/qml/main.qml")); // Avoid use of RCC during development on Desktop
+        const QUrl url(QStringLiteral("src/qml/App.qml")); // Avoid use of RCC during development on Desktop
     #else
         engine.addImportPath(QStringLiteral("qrc:///src/qml")); // For QML Plugins
-        const QUrl url(QStringLiteral("qrc:///src/qml/main.qml"));
+        const QUrl url(QStringLiteral("qrc:///src/qml/App.qml"));
     #endif
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
